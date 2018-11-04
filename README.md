@@ -199,15 +199,15 @@ void F_Change(bool DatIn[32],bool DatKi[48])
 
 ### 正确解码
 
-![](https://ws3.sinaimg.cn/large/006tNbRwgy1fwvw0i99brj30xw0p0ads.jpg)
+![](https://ws3.sinaimg.cn/bmiddle/006tNbRwgy1fwvw0i99brj30xw0p0ads.jpg)
 
-![](https://ws3.sinaimg.cn/large/006tNbRwgy1fwvw454w99j30vk0k6gov.jpg)
+![](https://ws3.sinaimg.cn/bmiddle/006tNbRwgy1fwvw454w99j30vk0k6gov.jpg)
 
 如上二图表明，在给出正确的密码后，可以得到对应的明文。
 
 ### 密码错误
 
-![](https://ws3.sinaimg.cn/large/006tNbRwgy1fwvw845z8lj30wq0k80wk.jpg)
+![](https://ws3.sinaimg.cn/bmiddle/006tNbRwgy1fwvw845z8lj30wq0k80wk.jpg)
 
 若密码错误，将解码出错误答案。
 
