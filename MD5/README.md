@@ -57,8 +57,7 @@ const uint32_t r[] = {7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22
 // append "1" bit to message
 // append "0" bits until message length in bits ≡ 448 (mod 512)
 // append length mod (2^64) to message
- 
-for (new_len = initial_len + 1; new_len % (512/8) != 448/8; new_len++);
+ for (new_len = initial_len + 1; new_len % (512/8) != 448/8; new_len++);
  
 msg = (uint8_t*)malloc(new_len + 8);
 memcpy(msg, initial_msg, initial_len);
