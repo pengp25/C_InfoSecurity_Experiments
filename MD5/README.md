@@ -1,16 +1,17 @@
 # MD5 算法的程序设计和实现
 
+
 [TOC]
 
-## MD5算法概述
+## MD5 算法概述
 
-MD5，全名Message Digest Algorithm 5，为计算机安全领域广泛使用的一种散列函数，用以提供消息的完整性保护。MD5是一种信息摘要算法，主要是通过特定的hash散列方法将文本信息转换成简短的信息摘要，压缩+加密+hash算法的结合体，是绝对不可逆的。MD5是输入不定长度信息，输出固定长度128-bits的算法。经过程序流程，生成四个32位数据，最后联合起来。
+**MD5**，全名**Message Digest Algorithm 5**，为计算机安全领域广泛使用的一种散列函数，用以提供消息的完整性保护。**MD5**是一种信息摘要算法，主要是通过特定的hash散列方法将文本信息转换成简短的信息摘要，压缩+加密+hash算法的结合体，是绝对不可逆的。**MD5**是输入不定长度信息，输出固定长度128-bits的算法。经过程序流程，生成四个32位数据，最后联合起来。
 
-MD5以512位分组来处理输入的信息，且每一分组又被划分为16个32位子分组，经过了一系列的处理后，算法的输出由四个32位分组组成，将这四个32位分组级联后将生成一个128位散列值。MD5算法的过程分为四步：数据填充，设置初始值（标准向量），四轮循环运算，拼接结果。
+**MD5**以512位分组来处理输入的信息，且每一分组又被划分为16个32位子分组，经过了一系列的处理后，算法的输出由四个32位分组组成，将这四个32位分组级联后将生成一个128位散列值。**MD5**算法的过程分为四步：数据填充，设置初始值（标准向量），四轮循环运算，拼接结果。
 
 ## 结构和模块
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fxw89zi2mij30lm0ec3zt.jpg)
+![image](http://upload-images.jianshu.io/upload_images/3220531-6e7a51aff7ac182f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 
@@ -57,25 +58,25 @@ const uint32_t r[] = {7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22
 // append "1" bit to message
 // append "0" bits until message length in bits ≡ 448 (mod 512)
 // append length mod (2^64) to message
- for (new_len = initial_len + 1; new_len % (512/8) != 448/8; new_len++);
+ for (newLen = initialLen + 1; newLen % (512/8) != 448/8; newLen++);
  
-msg = (uint8_t*)malloc(new_len + 8);
-memcpy(msg, initial_msg, initial_len);
-msg[initial_len] = 0x80; // append the "1" bit; most significant bit is "first"
-for (offset = initial_len + 1; offset < new_len; offset++)
+msg = (uint8_t*)malloc(newLen + 8);
+memcpy(msg, initial_msg, initialLen);
+msg[initialLen] = 0x80; // append the "1" bit; most significant bit is "first"
+for (offset = initialLen + 1; offset < newLen; offset++)
 msg[offset] = 0; // append "0" bits
  
 // append the len in bits at the end of the buffer.
-to_bytes(initial_len*8, msg + new_len);
-// initial_len>>29 == initial_len*8>>32, but avoids overflow.
-to_bytes(initial_len>>29, msg + new_len + 4);
+to_bytes(initialLen*8, msg + newLen);
+// initialLen>>29 == initialLen*8>>32, but avoids overflow.
+to_bytes(initialLen>>29, msg + newLen + 4);
 ```
 
 
 
 **设置初始值**
 
-MD5的哈希结果长度为128位，按每32位分成一组共4组。这4组结果是由4个初始值$h_0$～$h_3$经过不断演变得到。MD5的官方实现中，$h_0$～$h_3$的初始值如下（16进制）：
+**MD5**的哈希结果长度为128位，按每32位分成一组共4组。这4组结果是由4个初始值$h_0$～$h_3$经过不断演变得到。**MD5**的官方实现中，$h_0$～$h_3$的初始值如下（16进制）：
 
 - $h_0$ = 0x67452301
 - $h_1$ = 0xefcdab89
@@ -100,7 +101,7 @@ h3 = 0x10325476;
 
 **循环运算**
 
-MD5所用到的函数有四种线性函数(&是与,|是或,~是非,^是异或)。如果X、Y和Z的对应位是独立和均匀的，那么结果的每一位也应是独立和均匀的。利用上面的四种操作，生成四个重要的计算函数。首先我们声明中间变量a、b、c、d。这个循环的循环次数为512位分组的个数。每次循环执行64不计算，上述4个函数每个16次，具体如下：
+**MD5**所用到的函数有四种线性函数(&是与,|是或,~是非,^是异或)。如果X、Y和Z的对应位是独立和均匀的，那么结果的每一位也应是独立和均匀的。利用上面的四种操作，生成四个重要的计算函数。首先我们声明中间变量a、b、c、d。这个循环的循环次数为512位分组的个数。每次循环执行64不计算，上述4个函数每个16次，具体如下：
 
 ```c
 // These vars will contain the hash
@@ -108,13 +109,13 @@ uint32_t h0, h1, h2, h3;
  
 // Message (to prepare)
 uint8_t *msg = NULL;
-size_t new_len, offset;
+size_t newLen, offset;
 uint32_t w[16];
 uint32_t a, b, c, d, i, f, g, temp;
 
 // Process the message in successive 512-bit chunks:
 // ForEach 512-bit chunk of message:
-for(offset=0; offset<new_len; offset += (512/8)) {
+for(offset=0; offset<newLen; offset += (512/8)) {
 
     // break chunk into sixteen 32-bit words w[j], 0 ≤ j ≤ 15
     for (i = 0; i < 16; i++)
@@ -170,12 +171,12 @@ to_bytes(h3, digest + 12);
 
 **数据处理**
 
-处理完所有的512位的分组后，得到一组新的$h_0$～$h_3$的值，将这些值按$h_0$～$h_3$的顺序级联，就得到了想要的MD5散列值。输出依然要考虑内存存储的大小端问题。
+处理完所有的512位的分组后，得到一组新的$h_0$～$h_3$的值，将这些值按$h_0$～$h_3$的顺序级联，就得到了想要的**MD5**散列值。输出依然要考虑内存存储的大小端问题。
 
 ```c
 // benchmark
 for (i = 0; i < 1000000; i++) {
-    md5((uint8_t*)msg, len, result);
+    **MD5**((uint8_t*)msg, len, result);
 }
 ```
 
@@ -183,19 +184,19 @@ for (i = 0; i < 1000000; i++) {
 
 ## 结果
 
-编译运行MD5.c，得到可执行文件，输入字符串*“IamLiuShuo-16340154”*，并在[miraclesalad](http://www.miraclesalad.com/webtools/md5.php)尝试对比结果，发现一致，实验成功！
+编译运行**MD5.c**，得到可执行文件，输入字符串***“IamLiuShuo-16340154”***，并在[miraclesalad](http://www.miraclesalad.com/webtools/**MD5**.php)尝试对比结果，发现一致，实验成功！
 
 
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fxw9l43zeaj311i050gmx.jpg)
+![image](http://upload-images.jianshu.io/upload_images/3220531-4483f1c68028ab6f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 
-![](https://ws1.sinaimg.cn/large/006tNbRwgy1fxw9lu4w93j31990u0dqy.jpg)
+![image](http://upload-images.jianshu.io/upload_images/3220531-e18dbc5164bede57.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## 参考
 
-- [MD5算法原理与实现](https://blog.csdn.net/xiaofengcanyuexj/article/details/37698801)
-- [MD5加密算法原理及实现](https://www.cnblogs.com/hjgods/p/3998570.html)
-- [MD5值算法原理](https://www.cnblogs.com/ttss/p/4243274.html)
+- [**MD5**算法原理与实现](https://blog.csdn.net/xiaofengcanyuexj/article/details/37698801)
+- [**MD5**加密算法原理及实现](https://www.cnblogs.com/hjgods/p/3998570.html)
+- [**MD5**值算法原理](https://www.cnblogs.com/ttss/p/4243274.html)
 
