@@ -16,7 +16,7 @@ MD5以512位分组来处理输入的信息，且每一分组又被划分为16个
 
 **数据结构**
 
-采用32位无符号整数作为存储单元，常量的整数部分是正弦(弧度)* 2 ^ 32；r指定每个轮班的数量；定义Left Rotatate 函数为 (x) << (c) | (x) >> (32 - (c))。
+采用32位无符号整数作为存储单元，常量的整数部分是正弦（弧度）* 2 ^ 32；r指定每个轮班的数量；定义Left Rotatate 函数为 (x) << (c) | (x) >> (32 - (c))。
 
 ```c
 // Constants are the integer part of the sines of integers (in radians) * 2^32.
