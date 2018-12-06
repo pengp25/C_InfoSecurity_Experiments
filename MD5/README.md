@@ -3,11 +3,15 @@
 
 [TOC]
 
+---
+
 ## MD5 算法概述
 
 **MD5**，全名**Message Digest Algorithm 5**，为计算机安全领域广泛使用的一种散列函数，用以提供消息的完整性保护。**MD5**是一种信息摘要算法，主要是通过特定的hash散列方法将文本信息转换成简短的信息摘要，压缩+加密+hash算法的结合体，是绝对不可逆的。**MD5**是输入不定长度信息，输出固定长度128-bits的算法。经过程序流程，生成四个32位数据，最后联合起来。
 
 **MD5**以512位分组来处理输入的信息，且每一分组又被划分为16个32位子分组，经过了一系列的处理后，算法的输出由四个32位分组组成，将这四个32位分组级联后将生成一个128位散列值。**MD5**算法的过程分为四步：数据填充，设置初始值（标准向量），四轮循环运算，拼接结果。
+
+---
 
 ## 结构和模块
 
@@ -176,11 +180,11 @@ to_bytes(h3, digest + 12);
 ```c
 // benchmark
 for (i = 0; i < 1000000; i++) {
-    **MD5**((uint8_t*)msg, len, result);
+    MD5((uint8_t*)msg, len, result);
 }
 ```
 
-
+---
 
 ## 结果
 
@@ -194,9 +198,12 @@ for (i = 0; i < 1000000; i++) {
 
 ![image](http://upload-images.jianshu.io/upload_images/3220531-e18dbc5164bede57.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+---
+
 ## 参考
 
 - [**MD5**算法原理与实现](https://blog.csdn.net/xiaofengcanyuexj/article/details/37698801)
 - [**MD5**加密算法原理及实现](https://www.cnblogs.com/hjgods/p/3998570.html)
 - [**MD5**值算法原理](https://www.cnblogs.com/ttss/p/4243274.html)
 
+---
