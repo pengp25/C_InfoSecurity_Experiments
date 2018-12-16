@@ -1,0 +1,69 @@
+Last login: Sun Dec 16 21:20:23 on ttys000
+NinodeMacBook-Pro:~ nino$ cd desktop
+NinodeMacBook-Pro:desktop nino$ g++ X509.c -w
+NinodeMacBook-Pro:desktop nino$ ./a.out
+
+******* Certificate Athority Parsing *******
+
+version:	v3
+
+--------------------------------------------
+
+serialNumber:	2b85f2fe98d176994f38bfab9da62d5f
+
+--------------------------------------------
+
+name of alg of signature:	sha1RSA
+
+--------------------------------------------
+
+param of signature:	NULL
+
+--------------------------------------------
+
+validity 150523034331Z-200523035214Z
+
+--------------- ISSUER --------------------- 
+Country of issuer:	CN
+Sate or province name of issuer:	SC
+Locality of issuer:	CD
+Organization name of issuer:	UESTC
+Organizational Unit name of issuer:	CS
+Common Name of issuer:	testCA
+
+--------------------------------------------
+
+--------------- SUBJECT -------------------- 
+Country of subject:	CN
+Sate or province name of subject:	SC
+Locality of subject:	CD
+Organization name of subject:	UESTC
+Organizational Unit name of subject:	CS
+Common Name of subject:	testCA
+
+--------------------------------------------
+
+name of alg of SubjectPublicKey:	RSA
+
+--------------------------------------------
+
+param of alg of SubjectPublicKey:	NULL
+
+--------------------------------------------
+
+SubjectPublicKey:	003082010a0282010100d49f7db04dd0136c7663ede566d0a6f7b14227326544bf96cbbc5f7a0c5762fdcdae250aad8dc97cbba6a4cbc365c5c76fa856932dc92a24b63092f72db4215407a20532cc9167a58259442253dcfd38e83438e524f24965cb1fac9621069baed0858b71b178d602db9e9ce4a800953c17589bad04b0c8112084a5d1cb4b47d3900f7a1686e318289445408e0126c5fe973029eb35a74d8ceaaba57a1091f61942047bbf12d3e1c66e9da55558d4808dd4275aae293ad6073f20078e4566796065e6ddf6157c5dd7d86693c24fa983420616731e673f0ae0bd866fc148daceb3e03b2aef1cc091f5b707e5d745a5f310e44c5531432ac4b99c47df54acec9d070203010001
+
+--------------------------------------------
+
+name of signatureAlgorithm:	sha1RSA
+
+--------------------------------------------
+
+param of signatureAlgorithm:	NULL
+
+--------------------------------------------
+
+signiture value:	00689be24fac4b849bbf3763b7046561d97f79e5996f2836efd272364152489bf16131ae7f3031f751066ad84c61a8912ececb453465d279c12bcf97030e0205bfd78d059d6b864e6a888fc599e0f5b7336d04a3b6127a714699fc022161f348b48e3137b06c483a05e26a3ed982b513c7d7372338aad0052bc71c34c43ad9b3287d32c175e52790928b607f9fc489e88e32b844e50dc8918f1505c6b751ec47c0511d3512042f5272429616d2a76b8e62fac74213d9a8ded76302aef8ef8b74e87b226f4e2873916d57fe362f9b462c87033504ec82f6ebf8e02cdcb9a25726cd24a710c5323a77fe2713874532f6992aa78bdb08aa37d0d4b43c381a635e07ef
+
+********************************************
+NinodeMacBook-Pro:desktop nino$ 
