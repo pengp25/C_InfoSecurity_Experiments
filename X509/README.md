@@ -183,7 +183,10 @@ void bitFill(int dd){
 
 喝水不忘挖井人，在此感谢为我提供思路的资料：
 
--  [X.509证书的编码及解析：程序解析以及winhex模板解析](https://www.cnblogs.com/jiu0821/p/4598352.html)
--  
+-  [x.509数字证书编码详解](https://blog.csdn.net/kesay/article/details/46874699)
+
+- [X.509证书的编码及解析](https://www.cnblogs.com/jiu0821/p/4598352.html)
+
+- [X.509数字证书的编码](http://blog.sina.com.cn/s/blog_49b531af0102eahs.html)
 
 ---
