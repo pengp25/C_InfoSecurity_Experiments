@@ -173,7 +173,7 @@ void bitFill(int dd){
 
 ## 结果
 
-![](https://ws1.sinaimg.cn/large/006tNbRwgy1fy8w9bi0n0j30s240zh9v.jpg)
+![](https://ws1.sinaimg.cn/bmiddle/006tNbRwgy1fy8w9bi0n0j30s240zh9v.jpg)
 
 如上图，可以看到，**版本、序列号、算法、标识信息、有效期、签发者信息、主题信息、公钥加密算法、公钥数据、签名算法和签名结果**依次显示！
 
