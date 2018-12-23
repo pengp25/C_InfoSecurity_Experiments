@@ -25,7 +25,7 @@
 
 隧道模式保护所有 IP 数据并封装新的 IP 头部，不使用原始 IP 头部进行路由。在 IPSec 头部前加入新的 IP 头部，源目为 IPSec peer 地址。并允许 RFC 1918 规定的地址参与 VPN 穿越互联网。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwgy1fyggv4g30xj317y0myn0p.jpg)
+![](https://ws4.sinaimg.cn/bmiddle/006tNbRwgy1fyggv4g30xj317y0myn0p.jpg)
 
 
 
@@ -33,7 +33,7 @@
 
 传输模式保护原始 IP 头部后面的数据，在原始 IP 头和 payload 间插入 IPSec 头部（ESP 或 AH）。典型应用为端到端的会话，并且要求原始 IP 头部全局可路由。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwgy1fyggwqx3p6j319k0nigp6.jpg)
+![](https://ws4.sinaimg.cn/bmiddle/006tNbRwgy1fyggwqx3p6j319k0nigp6.jpg)
 
 与隧道模式不同，当 **IPSec** 工作在传输模式时，新的 IP 头并不会被生成，而是采用原来的 IP 头，保护的也仅仅是真正传输的数据，而不是整个IP报文。在处理方法上，原 IP 报文会先被解开，再在数据前面加上新的 ESP 或 AH 协议头，最后再装回原来的 IP 头。
 
@@ -47,7 +47,7 @@
 
 **ESP** 的数据封装格式如下：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwgy1fyghptjfz8j31fg0m2wht.jpg)
+![](https://ws1.sinaimg.cn/bmiddle/006tNbRwgy1fyghptjfz8j31fg0m2wht.jpg)
 
 
 
@@ -80,3 +80,18 @@
 
 ---
 
+## 参考
+
+*“喝水不忘挖井人”*，在此感谢为我提供思路的**参考**：
+
+- [传输模式下ESP的装包与拆包过程](https://wenku.baidu.com/view/c111a51c6bd97f192279e925.html)
+- [**TCP-IP** 详解：ESP(IPSec Encapsulating Security Payload)](https://blog.csdn.net/wdscq1234/article/details/52705458)
+- [在**IPSec**传输模式下ESP报文装包和拆包过程](https://blog.csdn.net/tl437002770/article/details/51107399)
+- [传输模式下ESP的装包和拆包过程](http://blog.sina.com.cn/s/blog_64ffd1280101egtj.html)
+- [**Psec**维基百科](http://zh.wikipedia.org/wiki/IPsec)
+- [WEB安全——**IPsec**传输模式下ESP报文的装包与拆包过程](https://www.cnblogs.com/2014-cjs/p/4068923.html)
+- [**IPSec**详细介绍](https://wenku.baidu.com/view/28ee3fd4fab069dc502201ab.html)
+
+
+
+---
