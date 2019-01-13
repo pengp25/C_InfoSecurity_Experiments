@@ -33,3 +33,7 @@ X.509 is the standard format for public key certificates in cryptography. X.509 
 
 
 ### ESP
+
+This folder gives the whole detail of packaging and unpacking ESP messages in IPSec mode.
+
+Encapsulated security payload protocol (ESP), one of two types of protocols supported by IPSec. The protocol can measure data integrity, source authentication and encryption during data transmission, and prevent replay attacks. Internet protocol security (IPSec) is an open standard framework for using encrypted security services to ensure secure and secure communications over Internet protocol (IP) networks. IPSec is the long-term direction of security networking. It provides active protection against private networks and Internet attacks through end-to-end security. In communications, only the sender and receiver are the only computers that must be aware of IPSec protection.
